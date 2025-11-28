@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download UFT - Universal Flashing Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .description {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .download-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .download-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2575fc;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        .download-container {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .download-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s;
+        }
+        
+        .download-item:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .download-item:last-child {
+            border-bottom: none;
+        }
+        
+        .file-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .file-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #2575fc;
+        }
+        
+        .file-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .file-details p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .instructions {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .instructions h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2575fc;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 20px;
+            color: #e74c3c;
+            background-color: #ffeaea;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        /* Scrollbar styling */
+        .download-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .download-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .download-container::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 4px;
+        }
+        
+        .download-container::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .download-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .download-btn {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Universal Flashing Tools (UFT)</h1>
+            <p class="subtitle">Download aplikasi UFT terbaru untuk kebutuhan flashing perangkat Anda</p>
+        </header>
+        
+        <section class="description">
+            <h2>Tentang UFT</h2>
+            <p>Universal Flashing Tools (UFT) adalah aplikasi yang dirancang untuk membantu proses flashing berbagai jenis perangkat mobile. Dengan antarmuka yang user-friendly dan fitur yang lengkap, UFT memudahkan Anda dalam memperbaiki, meng-upgrade, atau mengembalikan perangkat ke pengaturan pabrik.</p>
+        </section>
+        
+        <section class="download-section">
+            <h2 class="download-title">Download UFT</h2>
+            <div class="download-container" id="downloadList">
+                <div class="loading" id="loadingMessage">Memuat daftar file...</div>
+            </div>
+        </section>
+        
+        <section class="instructions">
+            <h2>Panduan Instalasi</h2>
+            <ol>
+                <li>Download file UFT sesuai dengan versi yang Anda butuhkan</li>
+                <li>Ekstrak file ZIP yang telah didownload</li>
+                <li>Jalankan file setup.exe sebagai administrator</li>
+                <li>Ikuti petunjuk instalasi yang muncul di layar</li>
+                <li>Setelah instalasi selesai, jalankan aplikasi UFT</li>
+                <li>Sambungkan perangkat Anda ke komputer dan ikuti petunjuk di aplikasi</li>
+            </ol>
+        </section>
+        
+        <footer>
+            <p>&copy; 2023 Universal Flashing Tools. Semua hak cipta dilindungi.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Fungsi untuk memformat ukuran file
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Fungsi untuk mendapatkan ikon berdasarkan ekstensi file
+        function getFileIcon(filename) {
+            const ext = filename.split('.').pop().toLowerCase();
+            const iconMap = {
+                'zip': '📦',
+                'exe': '⚙️',
+                'pdf': '📄',
+                'txt': '📝',
+                'doc': '📄',
+                'docx': '📄',
+                'xls': '📊',
+                'xlsx': '📊',
+                'jpg': '🖼️',
+                'png': '🖼️',
+                'gif': '🖼️'
+            };
+            return iconMap[ext] || '📁';
+        }
+
+        // Fungsi untuk mendapatkan deskripsi berdasarkan nama file
+        function getFileDescription(filename) {
+            if (filename.includes('UFT') && filename.includes('zip')) {
+                return 'File aplikasi Universal Flashing Tools';
+            } else if (filename.includes('driver') || filename.includes('Driver')) {
+                return 'Driver untuk perangkat tertentu';
+            } else if (filename.includes('manual') || filename.includes('Manual')) {
+                return 'Panduan penggunaan aplikasi';
+            } else {
+                return 'File untuk kebutuhan flashing';
+            }
+        }
+
+        // Fungsi untuk memuat daftar file dari server
+        async function loadDownloadFiles() {
+            const downloadList = document.getElementById('downloadList');
+            const loadingMessage = document.getElementById('loadingMessage');
+            
+            try {
+                // Mengambil daftar file dari endpoint API
+                const response = await fetch('/api/downloads');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const files = await response.json();
+                
+                // Hapus pesan loading
+                loadingMessage.remove();
+                
+                // Jika tidak ada file
+                if (files.length === 0) {
+                    downloadList.innerHTML = '<div class="error">Tidak ada file yang tersedia untuk download.</div>';
+                    return;
+                }
+                
+                // Tampilkan setiap file
+                files.forEach(file => {
+                    const downloadItem = document.createElement('div');
+                    downloadItem.className = 'download-item';
+                    
+                    downloadItem.innerHTML = `
+                        <div class="file-info">
+                            <div class="file-icon">${getFileIcon(file.name)}</div>
+                            <div class="file-details">
+                                <h3>${file.name}</h3>
+                                <p>${getFileDescription(file.name)}</p>
+                                <p><strong>Ukuran:</strong> ${formatFileSize(file.size)} | <strong>Diubah:</strong> ${new Date(file.modified).toLocaleDateString('id-ID')}</p>
+                            </div>
+                        </div>
+                        <a href="/download/${file.name}" class="download-btn" download>Download</a>
+                    `;
+                    
+                    downloadList.appendChild(downloadItem);
+                });
+                
+            } catch (error) {
+                console.error('Error loading files:', error);
+                loadingMessage.remove();
+                downloadList.innerHTML = `
+                    <div class="error">
+                        <p>Gagal memuat daftar file. Silakan refresh halaman atau coba lagi nanti.</p>
+                        <p>Error: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Panggil fungsi untuk memuat daftar file saat halaman dimuat
+        window.onload = loadDownloadFiles;
+    </script>
+</body>
+</html>
